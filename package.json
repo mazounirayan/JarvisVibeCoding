@@ -1,0 +1,28 @@
+{
+  "name": "jarvis-vibe-coding",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev:client",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build:demo": "npm run build:demo --prefix client",
+    "build:server": "npm run build --prefix server",
+    "build": "npm run build:client && npm run build:server",
+    "test": "npm run test:client && npm run test --workspace=server",
+    "test:client": "tsx --test client/tests/demo.test.ts client/tests/voice.test.ts client/tests/wake.test.ts",
+    "preview": "npm run preview --workspace=client",
+    "preview:demo": "npm run preview:demo --prefix client",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "Apache-2.0"
+}
